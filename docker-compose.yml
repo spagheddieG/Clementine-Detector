@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  dockertemplate:
+    image: dockertemplate
+    ports:
+         - "8000:8001"
+         - "8265:8265" # webui port
+    user: 1000:1000
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+        DISPLAY: $DISPLAY
+        TF_FORCE_GPU_ALLOW_GROWTH: 'true'
+        TF_CPP_MIN_LOG_LEVEL: 2
+        NVIDIA_VISIBLE_DEVICES: 'all'
+    volumes:
+      - ./:/app
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - "/etc/passwd:/etc/passwd"

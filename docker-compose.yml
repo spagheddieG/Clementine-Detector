@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  dockertemplate:
-    image: dockertemplate
+  app:
+    image: app:latest
     ports:
          - "8000:8001"
          - "8265:8265" # webui port

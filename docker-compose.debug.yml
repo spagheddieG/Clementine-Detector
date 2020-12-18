@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  dockertest:
-    image: dockertemplate
+  app:
+    image: app:latest
     build:
       context: .
       dockerfile: ./Dockerfile
